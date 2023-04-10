@@ -23,3 +23,7 @@ function removeVietnameseTones(str: string) {
     str = str.replace(/Đ/g, 'D');
     return str;
 }
+
+export const stringConvert = (value: any) => {
+    return `${value}`.substr(0, `${value}`.length);
+};

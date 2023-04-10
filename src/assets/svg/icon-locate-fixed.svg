@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<path d="M2 12H5" stroke="url(#paint0_radial_3607_4223)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M19 12H22" stroke="url(#paint1_radial_3607_4223)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12 2V5" stroke="url(#paint2_radial_3607_4223)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12 19V22" stroke="url(#paint3_radial_3607_4223)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12 19C15.866 19 19 15.866 19 12C19 8.13401 15.866 5 12 5C8.13401 5 5 8.13401 5 12C5 15.866 8.13401 19 12 19Z" stroke="url(#paint4_radial_3607_4223)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="#9D9696" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<defs>
+<radialGradient id="paint0_radial_3607_4223" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(3.5 12.5) rotate(90) scale(0.5 1.5)">
+<stop/>
+<stop offset="1"/>
+</radialGradient>
+<radialGradient id="paint1_radial_3607_4223" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(20.5 12.5) rotate(90) scale(0.5 1.5)">
+<stop/>
+<stop offset="1"/>
+</radialGradient>
+<radialGradient id="paint2_radial_3607_4223" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(12.5 3.5) rotate(90) scale(1.5 0.5)">
+<stop/>
+<stop offset="1"/>
+</radialGradient>
+<radialGradient id="paint3_radial_3607_4223" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(12.5 20.5) rotate(90) scale(1.5 0.5)">
+<stop/>
+<stop offset="1"/>
+</radialGradient>
+<radialGradient id="paint4_radial_3607_4223" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(12 12) rotate(90) scale(7)">
+<stop/>
+<stop offset="1"/>
+</radialGradient>
+</defs>
+</svg>

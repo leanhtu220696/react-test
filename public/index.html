@@ -3,10 +3,13 @@
 <head>
     <meta charset='UTF-8' />
     <link rel='icon' href='/favicon.png' />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,100&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <meta name='viewport' content='width=device-width, initial-scale=1' />
     <meta name='theme-color' content='#000000' />
     <meta name='description'
-          content='GST Company'
+          content='Safefire'
     />
     <link rel='apple-touch-icon' href='/logo192.png' />
     <!--
@@ -33,7 +36,202 @@
     />
     <meta property='og:image:width' content='300' />
     <meta property='og:image:height' content='300' />
+    <link href="/assets_home_page/vendor/fontawesome/css/fontawesome.css" rel="stylesheet">
     <title><%= htmlWebpackPlugin.options.title %></title>
+
+    <script>
+      /**
+     * Template Name: Safefire
+     */
+    function navbarToggle() {
+        // 'use strict';
+        /**
+         * Easy selector helper function
+         */
+        const select = (el, all = false) => {
+            el = el.trim();
+            if (all) {
+                return [...document.querySelectorAll(el)];
+            } else {
+                return document.querySelector(el);
+            }
+        };
+    
+      
+        const on = (type, el, listener, all = false) => {
+            let selectEl = select(el, all);
+            if (selectEl) {
+                if (all) {
+                    selectEl.forEach((e) => e.addEventListener(type, listener));
+                } else {
+                    selectEl.addEventListener(type, listener);
+                }
+            }
+        };
+    
+        /**
+         * Easy on scroll event listener
+         */
+        
+        const onscroll = (el, listener) => {
+            el.addEventListener('scroll', listener);
+        };
+    
+        /**
+         * Navbar links active state on scroll
+         */
+        let navbarlinks = select('#navbar .scrollto', true);
+        const navbarlinksActive = () => {
+            let position = window.scrollY + 200;
+            navbarlinks.forEach((navbarlink) => {
+                if (!navbarlink.hash) return;
+                let section = select(navbarlink.hash);
+                if (!section) return;
+                if (position >= section.offsetTop && position <= section.offsetTop + section.offsetHeight) {
+                    navbarlink.classList.add('active');
+                } else {
+                    navbarlink.classList.remove('active');
+                }
+            });
+        };
+        window.addEventListener('load', navbarlinksActive);
+        onscroll(document, navbarlinksActive);
+    
+        /**
+         * Scrolls to an element with header offset
+         */
+        const scrollto = (el) => {
+            let header = select('#header');
+            let offset = header.offsetHeight;
+    
+            let elementPos = select(el).offsetTop;
+            window.scrollTo({
+                top: elementPos - offset,
+                behavior: 'smooth',
+            });
+        };
+    
+        /**
+         * Toggle .header-scrolled class to #header when page is scrolled
+         */
+        let selectHeader = select('#header');
+        let selectTopbar = select('#topbar');
+        if (selectHeader) {
+            const headerScrolled = () => {
+                if (window.scrollY > 100) {
+                    selectHeader.classList.add('header-scrolled');
+                    if (selectTopbar) {
+                        selectTopbar.classList.add('topbar-scrolled');
+                    }
+                } else {
+                    selectHeader.classList.remove('header-scrolled');
+                    if (selectTopbar) {
+                        selectTopbar.classList.remove('topbar-scrolled');
+                    }
+                }
+            };
+            window.addEventListener('load', headerScrolled);
+            onscroll(document, headerScrolled);
+        }
+    
+        /**
+         * Back to top button
+         */
+        let backtotop = select('.back-to-top');
+        if (backtotop) {
+            const toggleBacktotop = () => {
+                if (window.scrollY > 100) {
+                    backtotop.classList.add('active');
+                } else {
+                    backtotop.classList.remove('active');
+                }
+            };
+            window.addEventListener('load', toggleBacktotop);
+            onscroll(document, toggleBacktotop);
+        }
+    
+        /**
+         * Mobile nav toggle
+         */
+        on('click', '.mobile-nav-toggle', function (e) {
+            select('#navbar').classList.toggle('navbar-mobile');
+            this.classList.toggle('bi-list');
+            this.classList.toggle('bi-x');
+        });
+    
+        /**
+         * Mobile nav dropdowns activate
+         */
+        on(
+            'click',
+            '.navbar .dropdown > a',
+            function (e) {
+                if (select('#navbar').classList.contains('navbar-mobile')) {
+                    e.preventDefault();
+                    this.nextElementSibling.classList.toggle('dropdown-active');
+                }
+            },
+            true,
+        );
+    
+        /**
+         * Scroll with offset on links with a class name .scrollto
+         */
+        on(
+            'click',
+            '.scrollto',
+            function (e) {
+                if (select(this.hash)) {
+                    e.preventDefault();
+    
+                    let navbar = select('#navbar');
+                    if (navbar.classList.contains('navbar-mobile')) {
+                        navbar.classList.remove('navbar-mobile');
+                        let navbarToggle = select('.mobile-nav-toggle');
+                        navbarToggle.classList.toggle('bi-list');
+                        navbarToggle.classList.toggle('bi-x');
+                    }
+                    scrollto(this.hash);
+                }
+            },
+            true,
+        );
+    
+        /**
+         * Scroll with ofset on page load with hash links in the url
+         */
+        window.addEventListener('load', () => {
+            if (window.location.hash) {
+                if (select(window.location.hash)) {
+                    scrollto(window.location.hash);
+                }
+            }
+        });
+    
+        /**
+         * Preloader
+         */
+        let preloader = select('#preloader');
+        if (preloader) {
+            window.addEventListener('load', () => {
+                preloader.remove();
+            });
+        }
+    
+        /**
+         * Animation on scroll
+         */
+        window.addEventListener('load', () => {
+            AOS.init({
+                duration: 1000,
+                easing: 'ease-in-out',
+                once: true,
+                mirror: false,
+            });
+        });
+    };
+    
+    </script>
 </head>
 <body>
 <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -49,5 +247,7 @@
   To begin the development, run `npm start` or `yarn start`.
   To create a production bundle, use `npm run build` or `yarn build`.
 -->
+<script src="/assets_home_page/vendor/aos/aos.js"></script>
+<script src="/assets_home_page/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

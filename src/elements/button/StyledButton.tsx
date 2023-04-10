@@ -13,6 +13,10 @@ export const FormButton = ({ children, ...props }: Props) => {
     return <StyledFormBtn {...props}>{children}</StyledFormBtn>;
 };
 
+export const StyledDetailButton = ({ children, ...props }: Props) => {
+    return <StyledDetailBtn {...props}>{children}</StyledDetailBtn>;
+};
+
 const StyledBtn = styled.button`
     flex: 0 0 10%;
     border: none;
@@ -47,4 +51,21 @@ const StyledFormBtn = styled(StyledBtn)`
     width: calc(100% - 1rem) !important;
     font-size: 1rem;
     padding: 0.8rem 1rem;
+`;
+
+const StyledDetailBtn = styled(StyledBtn)`
+    width: 100%;
+    margin-top: 10px;
+    padding: 3px 0;
+    font-size: 12px;
+    color: #00adee;
+    background-color: #ffffff;
+    border: 1px solid #00adee;
+    border-radius: 16px;
+
+    &:hover,
+    &:active {
+        color: #ffffff;
+        background-color: #00adee;
+    }
 `;

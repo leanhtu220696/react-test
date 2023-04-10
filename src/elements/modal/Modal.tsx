@@ -26,7 +26,7 @@ export const BodyPopup = ({
 
     const transition = useTransition(visible, {
         from: { opacity: 0, transform: 'translate(50%, -50px)' },
-        enter: { opacity: 1, transform: 'translate(50%, 0px)' },
+        enter: { opacity: 1, transform: 'translate(50%, 0)' },
         leave: { opacity: 0, transform: 'translate(50%, 50px)' },
     });
 

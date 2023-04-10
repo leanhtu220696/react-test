@@ -13,6 +13,11 @@ declare module '*.png' {
     export default content;
 }
 
+declare module '*.jpg' {
+    const content: any;
+    export default content;
+}
+
 declare module '*.json' {
     const content: any;
     export default content;
@@ -20,5 +25,15 @@ declare module '*.json' {
 
 declare module '*.css' {
     const content: any;
+    export default content;
+}
+
+declare module '*.js' {
+    const content: any;
+    export default content;
+}
+
+declare module '*.mp3' {
+    const content: string;
     export default content;
 }

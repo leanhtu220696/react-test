@@ -1,8 +1,23 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
-
-
+  ::selection {
+    color: #000;
+    background: #ffdcb1;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgba(192, 194, 192, 0.8);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(192, 194, 192);
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(192, 194, 192);
+  }
   * {
     margin: 0;
     padding: 0;
@@ -18,12 +33,12 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   a {
-    color: gray !important;
+    color: gray;
   }
 
   a:hover {
-    color: #ffffff !important;
-    text-decoration: none !important;
+    color: #ffffff ;
+    text-decoration: none ;
   }
 
   ul {
@@ -40,7 +55,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   hr {
-    background-color: #ee772f;
+    background-color: #1b90ff;
     margin-top: 1rem;
     margin-bottom: 1rem;
     border: 0;
@@ -48,13 +63,27 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   p {
-    margin-bottom: 0px;
+    margin-bottom: 0;
   }
-
+  .ant-message-notice-content{
+      border-radius: 3px;
+      background-color: #B3EDFF;
+      padding: 17px 20px;
+      font-size: 14px;
+  }
+  .ant-message-notice-content > div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  .ant-message-notice-content > div > span > svg {
+      width: 27px;
+      height:27px;
+  }
   .listScroll {
     overflow-x: hidden;
     scrollbar-width: thin;
-    scrollbar-color: #ee772f #070707;
+    scrollbar-color: #1b90ff #070707;
 
     ::-webkit-scrollbar-track {
       -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -63,12 +92,12 @@ export const GlobalStyle = createGlobalStyle`
 
     ::-webkit-scrollbar {
       width: 5px;
-      background-color: #ee772f;
+      background-color: #1b90ff;
       display: none;
     }
 
     ::-webkit-scrollbar-thumb {
-      background-color: #ee772f;
+      background-color: #1b90ff;
       border: 2px solid #555555;
     }
   }
@@ -78,21 +107,35 @@ export const GlobalStyle = createGlobalStyle`
       display: block;
     }
   }
+.ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-icon {
+        background: #00b147;
+    }
 
+.ant-steps-item-process .ant-steps-item-icon {
+        border-color: #00b147;
   }
 
+.ant-steps-item-finish .ant-steps-item-icon {
+    border-color: #00b147;
+}
+.ant-steps-finish-icon > svg {
+    fill: #00b147;
+}
+.ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-tail::after {
+    background-color: #00b147;
+}
   .ant-list-item-meta-avatar {
-    margin-right: 0px !important;
+    margin-right: 0 !important;
   }
 
   .ant-modal-header {
-    background: #ee772f;
-    border-bottom: 2px solid #ee772f;
+    background: #1b90ff;
+    border-bottom: 2px solid #1b90ff;
   }
 
   .ant-modal-footer {
     background: white;
-    border-top: 1px solid #ee772f;
+    border-top: 1px solid #1b90ff;
   }
 
   .ant-modal-title {
@@ -104,7 +147,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 2rem;
     font-weight: 400;
     line-height: 40px;
-    color: #ffffff;
+    color: #000000;
     display: inline-block;
     padding: 0;
     margin: 0;
@@ -114,10 +157,27 @@ export const GlobalStyle = createGlobalStyle`
     font-family: Roboto, sans-serif;
     font-weight: 400;
     line-height: 31px;
-    color: #ffffff;
+    color: #000000;
     display: inline-block;
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
+  }
+  @media(max-width: 1200px){
+    .ant-message-notice-content{
+      border-radius: 3px;
+      background-color: rgba(0, 194, 255, 0.3);
+      padding: 12px 15px;
+      font-size: 12px;
+    }
+    .ant-message-notice-content > div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .ant-message-notice-content > div > span > svg {
+      width: 20px;
+      height:20px;
+    }
   }
 `;
 

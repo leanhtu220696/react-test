@@ -11,7 +11,7 @@ require('dotenv').config();
 const DotEnv = require('dotenv-webpack');
 
 module.exports = {
-    entry: '/src/index.tsx',
+    entry: './src/index.tsx',
     output: {
         path: resolve(__dirname, '..', 'build'),
         filename: 'static/js/[name].[contenthash].js',
@@ -21,7 +21,7 @@ module.exports = {
     },
 
     resolve: {
-        extensions: ['.ts', '.tsx', '.js'],
+        extensions: ['.ts', '.tsx', '.js', '.json'],
         alias: {
             '@': resolve(__dirname, '..', 'src'),
         },
@@ -44,7 +44,7 @@ module.exports = {
 
         new HtmlPlugin({
             scriptLoading: 'module',
-            template: '/public/index.html',
+            template: './public/index.html',
             title: process.env.APP_TITLE,
             minify: true,
         }),
@@ -57,7 +57,7 @@ module.exports = {
         new CopyPlugin({
             patterns: [
                 {
-                    from: 'public/assets',
+                    from: './public/assets',
                 },
             ],
         }),
@@ -81,7 +81,7 @@ module.exports = {
                 // Todo: Find way to include/exclude css in node_modules with 'exclude'
             },
             {
-                test: /\.(png|jpe?g|gif)$/i,
+                test: /\.(png|jpg|jpe?g|gif)$/i,
                 type: 'asset/resource',
                 generator: {
                     filename: 'static/assets/img/[contenthash].[ext]',
@@ -104,6 +104,18 @@ module.exports = {
                         },
                     },
                 ],
+            },
+            {
+                test: /\.mp3$/,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'static/assets/sound/[contenthash].[ext]',
+                },
+            },
+            {
+                test: /strings\.json$/,
+                use: ['webpack-json-access-optimizer'],
+                type: 'json',
             },
         ],
     },

@@ -13,18 +13,18 @@ export default LoadingComponent;
 
 const LoadingSection = styled.div`
     width: 100%;
-    height: 80vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #171717;
+    background-color: #ffffff;
 
     & .ant-spin-lg .ant-spin-dot {
         font-size: 100px;
     }
 
     & .ant-spin-dot-item {
-        background-color: #faad14;
+        background-color: #1890ff;
         width: 45px !important;
         height: 45px !important;
     }

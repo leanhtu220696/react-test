@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { usePromiseTracker } from 'react-promise-tracker';
 
 export const Loader = ({
@@ -11,5 +11,9 @@ export const Loader = ({
     loadingArea?: string | undefined;
 }) => {
     const { promiseInProgress } = usePromiseTracker({ area: loadingArea });
-    return <>{promiseInProgress ? contentLoader : children}</>;
+    const [promiseInProgressNew, setPromiseInProgressNew] = useState(false);
+    useEffect(() => {
+        setPromiseInProgressNew(promiseInProgress);
+    }, [promiseInProgress]);
+    return <>{!promiseInProgressNew ? children : contentLoader}</>;
 };

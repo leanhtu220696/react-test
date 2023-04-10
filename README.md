@@ -145,4 +145,3 @@ có thể triển khai trực tiếp **Zustand** thay vì sử dụng qua một 
 
 Big thanks to *@damocles* for an effective React Webpack skeleton and explained to me some confusing part of it.
 
-# react-test
